@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface BlogMapper {
     String table_name = "blog";
-    String column = "title,value";
+    String column = "id, title, value";
 
 
     @Select(" select " + column + " from "+ table_name)
