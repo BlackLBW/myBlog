@@ -1,10 +1,14 @@
 package com.bowen.blog.controller;
 
+import com.bowen.blog.model.Result;
 import com.bowen.blog.proxy.UserProxy;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by libowen on 2018/7/12.
@@ -20,8 +24,14 @@ public class LoginController {
 
     @RequestMapping(value = "/login")
     public Object login(@RequestParam(value = "userName") String userName,
-                        @RequestParam(value = "password") String password) {
-        return userProxy.login(userName, password);
+                        @RequestParam(value = "password") String password,
+                        HttpServletRequest request) {
+        // session先取下uId 可以弄成拦截器模式
+        String userNameFromSession = String.valueOf(request.getSession().getAttribute("userName"));
+        if (StringUtils.isNotBlank(userNameFromSession) && userNameFromSession.equals(userName)) {
+            return Result.success();
+        }
+        return userProxy.login(userName, password, request);
     }
 
     @RequestMapping(value = "/regist")

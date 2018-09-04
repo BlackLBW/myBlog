@@ -16,8 +16,8 @@ public class BlogProxy {
     @Autowired
     private BlogBiz blogBiz;
 
-    public List<Blog> getBlogs() {
-        return blogBiz.getBlogs();
+    public List<Blog> getBlogsByWriter(String writer) {
+        return blogBiz.getBlogsByWriter(writer);
     }
 
 

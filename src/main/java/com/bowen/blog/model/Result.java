@@ -50,4 +50,7 @@ public class Result<T> {
         return new Result<T>(ResponseStatus.PARAM_INVALID, msg);
     }
 
+    public static <T>Result<T> notLogin() {
+        return new Result<T>(ResponseStatus.NOT_LOGIN, "未登录");
+    }
 }

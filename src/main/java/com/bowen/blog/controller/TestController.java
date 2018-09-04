@@ -15,6 +15,6 @@ public class TestController {
 
     @RequestMapping("/")
     public Object test() {
-        return blogProxy.getBlogs();
+        return "hello world";
     }
 }

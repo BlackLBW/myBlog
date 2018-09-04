@@ -16,7 +16,7 @@ public class BlogBiz {
     @Autowired
     private BlogMapper blogMapper;
 
-    public List<Blog> getBlogs() {
-        return blogMapper.getBlogs();
+    public List<Blog> getBlogsByWriter(String writer) {
+        return blogMapper.getBlogsByWriter(writer);
     }
 }

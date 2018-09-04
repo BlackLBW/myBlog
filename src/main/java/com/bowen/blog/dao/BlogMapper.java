@@ -12,9 +12,9 @@ import java.util.List;
 @Mapper
 public interface BlogMapper {
     String table_name = "blog";
-    String column = "id, title, writer, type, summary, public_date, update_date ,review_count, blog_markdown";
+    String columns = "id, title, writer, type, summary, public_date, update_date ,review_count, blog_markdown";
 
 
-    @Select(" select " + column + " from "+ table_name)
-    public List<Blog> getBlogs();
+    @Select(" select " + columns + " from "+ table_name + " where writer = #{writer}")
+    List<Blog> getBlogsByWriter(String writer);
 }
