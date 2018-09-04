@@ -16,14 +16,16 @@ public class UserProxy {
     private UserBiz userBiz;
 
     public Object login(String userName, String password) {
+
         User user = userBiz.getUserByName(userName);
 
-
         if (user != null && password.equals(user.getPassword())) {
+            userBiz.updateUserLoginTime(user.getId());
             return Result.success();
         } else {
             return Result.paramInvalid("用户不存在");
         }
 
     }
+
 }

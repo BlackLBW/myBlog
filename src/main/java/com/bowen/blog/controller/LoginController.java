@@ -23,4 +23,10 @@ public class LoginController {
                         @RequestParam(value = "password") String password) {
         return userProxy.login(userName, password);
     }
+
+    @RequestMapping(value = "/regist")
+    public Object regist() {
+
+        return null;
+    }
 }

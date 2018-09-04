@@ -19,4 +19,6 @@ public class BlogProxy {
     public List<Blog> getBlogs() {
         return blogBiz.getBlogs();
     }
+
+
 }

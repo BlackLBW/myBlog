@@ -15,4 +15,11 @@ public class User {
     private String password;
     private String userAvatar;
     private long lastLoginTime;
+
+    public User(String userName, String password, String userAvatar, long lastLoginTime) {
+        this.userName = userName;
+        this.password = password;
+        this.userAvatar = userAvatar;
+        this.lastLoginTime = lastLoginTime;
+    }
 }

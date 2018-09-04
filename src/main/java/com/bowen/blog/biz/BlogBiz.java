@@ -17,6 +17,6 @@ public class BlogBiz {
     private BlogMapper blogMapper;
 
     public List<Blog> getBlogs() {
-        return  blogMapper.getBlogs();
+        return blogMapper.getBlogs();
     }
 }
