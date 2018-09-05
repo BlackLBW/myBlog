@@ -57,12 +57,14 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                     return true;
                 }
             }
+
+            response.setContentType("application/json; charset=UTF-8");
+            response.getWriter()
+                    .write(JsonUtils.toJsonStr(Result.notLogin()));
+            return false;
         }
 
-        response.setContentType("application/json; charset=UTF-8");
-        response.getWriter()
-                .write(JsonUtils.toJsonStr(Result.notLogin()));
-        return false;
+        return true;
     }
 
 }

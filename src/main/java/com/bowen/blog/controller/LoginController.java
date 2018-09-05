@@ -26,11 +26,7 @@ public class LoginController {
     public Object login(@RequestParam(value = "userName") String userName,
                         @RequestParam(value = "password") String password,
                         HttpServletRequest request) {
-        // session先取下uId 可以弄成拦截器模式
-        String userNameFromSession = String.valueOf(request.getSession().getAttribute("userName"));
-        if (StringUtils.isNotBlank(userNameFromSession) && userNameFromSession.equals(userName)) {
-            return Result.success();
-        }
+
         return userProxy.login(userName, password, request);
     }
 
